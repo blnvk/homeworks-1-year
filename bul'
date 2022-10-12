@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+//ввести с клавиатуры натуральное число, записать его в файл 1 затем сделать с ним действия и записать результат в файл 2
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	FILE *file1, *file2;
+	int x, y, m, n, z;
+	printf("Введите натуральное число  - ");
+	scanf_s("%d", &x);
+	file1 = fopen_s("file1.txt", "w", 1000);
+	fprintf(file1, "%d", x);
+	fclose(file1);
+	file1 = fopen_s("file1.txt", "r", 1000);
+	file2 = fopen_s("file2.txt", "w", 1000);
+	fscanf_s(file1, "%d", &y);
+	y += 3;
+	/* while (x > 100) { y = x / 10; }
+	n = y;
+	while (y > 10) { m = y / 10; }
+	z = ((n - (m * 10)) + m);*/
+	fclose(file1);
+	fprintf(file2, "%d\n", y);
+	fclose(file2);
+	return 0;
+}
