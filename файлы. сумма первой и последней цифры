@@ -1,0 +1,50 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <conio.h>
+
+int start(int y) {
+	int perv;
+	while (y >= 10) {
+		y = y / 10;
+		perv = y;
+		
+	}
+	printf("Первая цифра числа %d\n", perv);
+	return perv;
+	
+
+} 
+
+int end(int y) {
+	int posl;
+	posl = y % 10;
+	printf("Последняя цифра числа %d\n", posl);
+	return posl;
+	
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int x, y, a, b, c;
+	FILE *file1;
+	file1 = fopen("test.txt", "w");
+	printf("Введите целое число \n");
+	scanf("%d", &x);
+	fprintf(file1, "%d", x);
+	fclose(file1);
+
+	file1 = fopen("test.txt", "r");
+	fscanf(file1, "%d", &y);
+	a = start(y);
+	b = end(y);
+	c = (a + b);
+	fclose(file1);
+	FILE* file2;
+	file2 = fopen("result.txt", "w");
+	fprintf(file2, "%d", c);
+	printf("Сумма первой и последней цифры числа %d\n", c);
+	fclose(file2);
+
+	return 0;
+}
