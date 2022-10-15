@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <conio.h>
+
+int summa(int y) {
+	int d, sum = 0;
+	while (y != 0) {
+		d = y % 10;
+		sum = sum + d;
+		y = y / 10;
+	}
+	return sum;
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int x, y, n;
+	FILE *file1;
+	file1 = fopen("test.txt", "w");
+	printf("Введите целое число \n");
+	scanf("%d", &x);
+	fprintf(file1, "%d", x);
+	fclose(file1);
+
+	file1 = fopen("test.txt", "r");
+	fscanf(file1, "%d", &y);
+	n = summa(y);
+	printf("Сумма чисел числа %d равна %d\n", y, n);
+
+	return 0;
+}
