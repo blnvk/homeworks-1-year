@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <locale.h>
+#include <conio.h>
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int i = 0, l = 0; 
+	const int n = 3;
+	int arr[16];
+	int j = 0, k = 0, w;
+	for (i = 0; i < 16; i++)
+		scanf_s("%d", &arr[i]);
+	printf("Неотсортированный массив ");
+	for (i = 0; i < 16; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	for (j = 0; j < 16; j++) {
+		for (k = 0; k < (16 - j - 1); k++) {
+			if (arr[k] > arr[k + 1]) {
+				w = arr[k];
+				arr[k] = arr[k + 1];
+				arr[k + 1] = w;
+			}
+		}
+	}
+	printf("Отсортированный массив ");
+	for (l = 0; l < 16; l++)
+		printf("%d ", arr[l]);
+	printf("\n");
+	return 0;
+}
