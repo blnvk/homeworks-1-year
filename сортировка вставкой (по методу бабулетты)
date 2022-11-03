@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int arr[16];
+	int i, j, k, l, m, m_1, ind = 0;
+	printf("Введите 16 целых чисел\n");
+	for (m = 0; m < 16; ++m) {
+		scanf_s("%d", &arr[m]);
+	}
+	printf("Неотсортированный массив ");
+	for (m_1 = 0; m_1 < 16; ++m_1) {
+		printf("%d ", arr[m_1]);
+	}
+	printf("\n");
+	for (i = 0; i < 16; ++i) {
+		int mini = 10000;
+		for (j = i; j < 16; ++j){ 
+			if (arr[j] < mini) {
+				mini = arr[j];
+				ind = j;
+			}
+		}
+		for (k = ind; k > i; --k) {
+			arr[k] = arr[k - 1];
+		}
+		arr[i] = mini;
+	}
+	printf("Отсортированный массив ");
+	for (l = 0; l < 16; ++l) {
+		printf("%d ", arr[l]);
+	}
+	return 0;
+}
