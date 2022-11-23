@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <locale.h>
+
+int swap(int x, int y) {
+	int a;
+	a = x;
+	x = y;
+	y = a;
+	return x, y;
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int arr[12], i, j, n;
+	printf("Введите 12 чисел от 0 до 99\n");
+	for (i = 0; i < 12; ++i) {
+		scanf_s("%d", &arr[i]);
+	}
+	printf("Массив до инверсии ");
+	for (i = 0; i < 12; ++i) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	for (j = 0; j < 6; ++j) {
+		arr[j], arr[12 - 1 - j] = swap(arr[j], arr[12 - 1 -j]);
+		printf(arr[j], arr[12 - 1 - j]);
+	}
+	printf("Массив после инверсии ");
+	for (n = 0; n < 12; ++n) {
+		printf("%d ", arr[n]);
+	}
+	printf("\n");
+	return 0;
+}
