@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int arr[12];
+	int i, j, plus = 0, minus = 0;
+	printf("Введите 12 целых чисел\n");
+	for (i = 0; i < 12; ++i) {
+		scanf_s("%d", &arr[i]);
+	}
+	printf("Вы ввели:");
+	for (i = 0; i < 12;  ++i) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	for (j = 0; j < 12; ++j) {
+		if (arr[j] >= 0) {
+			plus += arr[j];
+		}
+		else {
+			minus += 1;
+		}
+	}
+	printf("Сумма положительных чисел: %d, количество отрицательных чисел: %d", plus, minus);
+	return 0;
+}
+
