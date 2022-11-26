@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void square(float arr[]);
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	float arr[10];
+	int i = 0;
+	printf("Введите 10 чисел\n");
+	for (i = 0; i < 10; i++) {
+		scanf_s("%f", &arr[i]);
+	}
+	square(arr);
+	return 0;
+}
+
+void square(float arr[]) {
+	int j;
+	float quad;
+	for (j = 0; j < 10; ++j) {
+		quad = (arr[j] * arr[j]);
+		printf("Квадрат числа %.2f = %.2f\n",arr[j], quad);
+	}
+}
