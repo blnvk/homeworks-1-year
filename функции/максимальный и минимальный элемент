@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void summa(int arr[]);
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int arr[10];
+	int i = 0;
+	printf("Введите 10 чисел\n");
+	for (i = 0; i < 10; i++) {
+		scanf_s("%d", &arr[i]);
+	}
+	summa(arr);
+	return 0;
+}
+
+void summa(int arr[]) {
+	int j, mini = 1000, maxi = 0;
+	for (j = 0; j < 10; ++j) {
+		if (arr[j] < mini) {
+			mini = arr[j];
+		}
+		if (arr[j] > maxi) {
+			maxi = arr[j];
+		}
+	}
+	printf("Максимальный элемент массива = %d, минимальный элемент массива = %d", maxi, mini);
+}
