@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int fact(n) {
+	int i, result = 1;
+	for (i = 1; i < n; ++i) {
+		result *= i;
+	}
+	return result;
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int n, znach;
+	printf("Введите целое неотрицательное число\n");
+	scanf_s("%d", &n);
+	znach = fact(n);
+	printf("Факториал числа %d = %d\n", n, znach);
+	return 0;
+}
+
