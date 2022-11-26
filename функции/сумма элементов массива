@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void summa(int arr[]);
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	int arr[10];
+	int i = 0;
+	printf("Введите 10 чисел\n");
+	for (i = 0; i < 10; i++) {
+		scanf_s("%d", &arr[i]);
+	}
+	summa(arr);
+	return 0;
+}
+
+void summa(int arr[]) {
+	int j, result = 0;
+	for (j = 0; j < 10; ++j) {
+		result += arr[j];
+	}
+	printf("Сумма элементов массива = %d", result);
+}
