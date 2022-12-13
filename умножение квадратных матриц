@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <windows.h>
+
+const int N = 3;
+
+int main () {
+    SetConsoleOutputCP(CP_UTF8);
+    int arr1[N][N];
+    int arr2[N][N];
+    int arr3[N][N];
+    int i, j, k; //переменные-счетчики
+
+    printf("Введите первую матрицу \n");
+
+    for (i = 0; i < N; ++i) { //ввод первой матрицы
+        for (j = 0; j < N; ++j) {
+            scanf_s("%d", &arr1[i][j]);
+        }
+    }
+    printf("Введите вторую матрицу \n");
+    for (i = 0; i < N; ++i) { //ввод второй матрицы
+        for (j = 0; j < N; ++j) {
+            scanf_s("%d", &arr2[i][j]);
+        }
+    }
+
+    for (i = 0; i < N; ++i) {
+        for (j = 0; j < N; ++j) {
+            arr3[i][j] = 0;
+            for (k = 0; k < N; ++k) {
+                arr3[i][j] += (arr1[i][k] * arr2[k][j]);
+            }
+        }
+    }
+    for (i = 0; i < N; ++i) {
+        for (j = 0; j < N; ++j) {
+            printf("%d ", arr3[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
