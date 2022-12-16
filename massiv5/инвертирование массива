@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define LENGTH(arr) sizeof(arr)/sizeof(arr[0])
+
+void swap(int *a, int *b);
+void invert_array(int *arr, int length);
+void print_array(int *arr, int length);
+
+int main() {
+    int array[] = {5, 7, 2, 30, 7, 8, 55, 22, 1, 12, 0, 54 };
+    print_array(array, LENGTH(array));
+    invert_array(array, LENGTH(array));
+    print_array(array, LENGTH(array));
+}
+
+void invert_array(int *arr, int length) {
+    for (int i = 0; i < (length/2); ++i) {
+        swap(&arr[i], &arr[length - i - 1]);
+    }
+}
+
+void swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void print_array(int *arr, int length) {
+    for (int i = 0; i < length; ++i) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
