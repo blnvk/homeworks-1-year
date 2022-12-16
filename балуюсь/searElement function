@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <windows.h>
+//#include <stdbool.h>
+
+#define LENGTH(array) sizeof(array)/sizeof(array[0])
+
+//const int N = 3;
+
+void searchElement(int* array, int length, int typo);
+//void input_Array(int *array, int length);
+
+int main () {
+    SetConsoleOutputCP(CP_UTF8);
+    //int length = N;
+    int a = 0;
+    int array1[] = {5, 6, 2, 1, 0, 19, 50};
+    searchElement(array1, LENGTH(array1), a);
+    return 0;
+}
+
+void searchElement(int* array, int length, int typo) {
+    if (typo == 0) {
+        int min_Element;
+        for (int i = 0; i < length; ++i) {
+            if (array[i] < array[i + 1]) {
+            }
+            min_Element = array[i];
+        }
+        printf("%d", min_Element);
+    }
+    else {
+        int max_Element = array[0];
+        for (int i = 0; i < length; ++i) {
+            if (max_Element < array[i + 1]) {
+                max_Element = array[i + 1];
+            }
+        }
+        printf("%d", max_Element);
+    }
+}
+
+//void input_Array(int *array, int length) {
+  //  for (int i = 0; i < length; ++i) {
+    //    scanf_s("%d", &array[i]);
+    //}
+//}
