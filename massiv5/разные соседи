@@ -1,0 +1,32 @@
+#include <stdio.h>
+const int N = 10;
+
+int main(){
+    int arr[N][N];
+    arr[0][0] = 1;
+    for (int i = 1; i < N; ++i){
+        arr[0][i] = ((arr[0][i - 1]) % 4) + 1;
+    }
+    for (int i = 1; i < N; ++i) {
+        for (int j = 0; j < N;  ++j) {
+            if (arr[i - 1][j] == 1) {
+                arr[i][j] = 3;
+            }
+            if (arr[i - 1][j] == 2) {
+                arr[i][j] = 4;
+            }
+            if (arr[i - 1][j] == 3) {
+                arr[i][j] = 1;
+            }
+            if (arr[i - 1][j] == 4) {
+                arr[i][j] = 2;
+            }
+        }
+    }
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
