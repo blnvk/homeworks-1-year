@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void binary_search(int *arr, int x, int left, int right);
+
+    int main(){
+    int array[] = {1, 11, 12, 13, 15, 16, 17, 19, 20};
+    binary_search(array, 15, 0, 8);
+
+}
+
+void binary_search(int *arr, int x, int left, int right) {
+    int middle;
+    while (left != right) {
+        middle = (left + right)/2;
+
+    if (x = arr[middle]) {
+        printf("the position of %d is %d", x, middle);
+        break;
+    }
+    else {
+        if (x > arr[middle]) {
+            left = middle + 1;
+        }
+        else {
+            right = middle - 1;
+            }
+        }
+    }
+}
+
