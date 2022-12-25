@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include <string.h>
+
+int main() {
+    FILE *f;
+    f = fopen("test.txt","r");
+    char str[500], largest_word[256] = "", shortest_word[256] = "veryveryveryveryverylongword";
+    int str_length;
+
+    while(!feof(f)){
+        fgets(str, sizeof(str), f);
+
+        for (char *p = strtok(str," "); p != NULL; p = strtok(NULL, " ")) {
+            str_length = (int)strlen(p);
+            if (strlen(shortest_word) > str_length) {
+                strcpy(shortest_word,p);
+            }
+            if (strlen(largest_word)<str_length) {
+                strcpy(largest_word,p);
+            }
+        }
+    }
+    printf("shortest :%s   largest :%s",shortest_word,largest_word);
+    fclose(f);
+    return 0;
+}
+
